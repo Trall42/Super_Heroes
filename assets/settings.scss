@@ -1,0 +1,19 @@
+// // vuetify brealkpoints
+// $rounded: (
+// 'sm': .55em, //10
+// 'md': .83em, //15px
+// 'lg': 1.11em, //20
+// 'xl': 1.38em, //25
+// );
+
+// @forward 'vuetify/settings' with (
+//   $grid-breakpoints: (
+//   )
+// );
+@use 'vuetify/settings' with (
+  $color-pack: false,
+  $utilities: false,
+  $button-height: 60px,
+  $button-border-width: 4px,
+  $button-border-radius: 10px,
+);

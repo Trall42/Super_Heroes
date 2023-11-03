@@ -1,10 +1,8 @@
 <template lang="pug">
-div
-  nav.header.test-global
+.layout-wrapper
+  nav.header
     NuxtLink.navbar__link(to='/') Home
     NuxtLink.nabvbar__link(to='heroes') Heroes
   slot
-  div Footer
+  .footer Footer
 </template>
-<style lang="scss">
-</style>

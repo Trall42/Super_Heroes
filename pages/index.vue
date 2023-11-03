@@ -1,3 +1,5 @@
 <template lang="pug">
-div Home page
+.main
+  v-btn Button
+  | Main page
 </template>
