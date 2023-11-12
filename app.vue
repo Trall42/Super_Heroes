@@ -39,8 +39,10 @@ dd {
   margin: 0;
 }
 .app {
-  background: rgb(2,6,23);
-  background: linear-gradient(13deg, rgba(2,6,23,1) 0%, rgba(1,1,60,1) 89%, rgba(16,24,60,1) 100%);
+  // background: rgb(2,6,23);
+  // background: linear-gradient(13deg, rgba(2,6,23,1) 0%, rgba(1,1,60,1) 89%, rgba(16,24,60,1) 100%);
+  background: $bg_second;
   height: 100vh;
+  overflow-x: auto;
 }
 </style>
