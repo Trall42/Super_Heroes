@@ -1,3 +1,3 @@
 <template lang="pug">
-div Heroes
+div.text-white text
 </template>
