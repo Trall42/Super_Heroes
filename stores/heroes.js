@@ -9,7 +9,6 @@ export const useHeroes = defineStore("heroes", {
   },
   actions: {
     async getHeroes(page = 1) {
-      console.log('Page', page)
       this.isPending = true
       this.heroesData = []
       const endPage = (page * 10)
@@ -25,8 +24,6 @@ export const useHeroes = defineStore("heroes", {
       } finally {
         this.isPending = false
       }
-      // this.products = await $fetch('https://api.escuelajs.co/api/v1/products?offset=0&limit=10').catch((error) => error.data)
-      // this.products = await $fetch('https://fakestoreapi.com/products').catch((error) => error.data)
     },
   }
 })

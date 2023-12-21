@@ -18,7 +18,7 @@
           hide-details
           variant='outlined'
         )
-    #heroes-data-screen.heroes__wrapper-content
+    #heroes-data-screen.heroes__wrapper-content(v-if="getHeroData.heroesData.length")
       .heroes__hero.text-white(
         v-for="hero in heroes"
         :key="hero.id"
@@ -26,6 +26,7 @@
         NuxtLink(:to='`/heroes/${hero.id}`')
           .heroes__hero-wrapper(:style='`background-image: url(${hero?.image?.url}); height: 100%;`')
             div {{ hero.name }}
+    .heroes__empty.text-white.d-flex.justify-center.align-center Character with given name not found
   .heroes__pagination.text-center(
     v-if='!searchHeroes'
   )
@@ -37,7 +38,7 @@
       size='40'
       variant='outlined'
       :length='74'
-      :total-visible='4'
+      :total-visible='7'
       @update:modelValue='getHeroes(page)'
     )
 </template>
@@ -60,7 +61,6 @@ const searchError = ref('')
 
 watch(searchHeroes, (value) => {
   clearTimeout(timePending.value)
-  console.log('Search value', value)
   timePending.value = setTimeout( async () => {
     serchHeroes()
   }, 1500)
@@ -80,7 +80,6 @@ async function serchHeroes() {
     try {
       getHeroData.isPending = true
       const response = await nuxtApp.$api.charactersApi.searchCharacters(searchHeroes.value)
-      console.log('response.data', response.data)
       if (response.data.response === 'success') getHeroData.heroesData = response.data.results
       else getHeroData.heroesData = []
     } catch (error) {
@@ -121,8 +120,14 @@ onMounted(() => {
       min-width: 300px;
     }
   }
+  .heroes__empty {
+    height: calc(100vh - 90px);
+    border-radius: 10px;
+    border: 1px solid $light_blue;
+    background: rgba(14, 17, 27, 0.8);
+    box-shadow: 0px 0px 14px 2px $light_blue;
+  }
   .heroes__wrapper-content {
-    // border: 1px solid green;
     padding: 24px;
     height: calc(100vh - 90px);
     overflow-y: auto;
@@ -139,7 +144,6 @@ onMounted(() => {
     height: 400px;
     min-width: 100px;
     border-radius: 10px;
-    border: 1px solid red;
     .heroes__hero-wrapper {
       position: relative;
       background-size: cover;
