@@ -26,7 +26,7 @@
         NuxtLink(:to='`/heroes/${hero.id}`')
           .heroes__hero-wrapper(:style='`background-image: url(${hero?.image?.url}); height: 100%;`')
             div {{ hero.name }}
-    .heroes__empty.text-white.d-flex.justify-center.align-center Character with given name not found
+    .heroes__empty.text-white.d-flex.justify-center.align-center(v-if="!getHeroData.heroesData.length && !!searchHeroes") Character with given name not found
   .heroes__pagination.text-center(
     v-if='!searchHeroes'
   )
@@ -65,14 +65,6 @@ watch(searchHeroes, (value) => {
     serchHeroes()
   }, 1500)
 })
-
-// async function detectScroll() {
-//   if ((heroesDataScreen.value.scrollHeight - heroesDataScreen.value.scrollTop) <= (heroesDataScreen.value.clientHeight)) {
-//     await getHeroData.getHeroes(pagination.value)
-//     pagination.value++
-//     console.log('Supper Scroll', heroes.value)
-//   }
-// }
 
 // -------- function ---------
 async function serchHeroes() {
