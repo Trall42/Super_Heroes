@@ -92,6 +92,10 @@ async function getHero() {
     isLoading.value = false
   }
 }
+
+onMounted(() => {
+  getHero()
+})
 </script>
 <style lang="scss">
 .v-chip {
