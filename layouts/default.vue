@@ -5,7 +5,7 @@
       .d-flex.header-logo
         NuxtLink.navbar__link(to='/')
           v-img(width="80" height="42" src="./logo/dc_marvel_logo_two.webp")
-      .header-links.d-flex.align-center.justify-center.flex-wrap.ml-10
+      .header-links.d-flex.align-center.justify-center.flex-wrap
         NuxtLink.navbar__link(to='/') Home
         NuxtLink.navbar__link.ml-4(to='heroes') Heroes
   slot
