@@ -6,7 +6,7 @@
       .d-flex.heroes-logo
         NuxtLink.navbar__link(to='/')
           v-img(width="80" height="42" src="./logo/dc_marvel_logo_two.webp")
-      .heroes__search.d-flex
+      .heroes__search.d-flex.ml-10
         v-text-field(
           v-model='searchHeroes'
           label='Search heroes'
@@ -109,7 +109,8 @@ onMounted(() => {
     margin: 0 auto;
     max-width: 1280px;
     .heroes__search {
-      min-width: 300px;
+      max-width: 300px;
+      width: 100%;
     }
   }
   .heroes__empty {
