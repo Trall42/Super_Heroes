@@ -38,7 +38,7 @@
       size='40'
       variant='outlined'
       :length='74'
-      :total-visible='7'
+      :total-visible='3'
       @update:modelValue='getHeroes(page)'
     )
 </template>
