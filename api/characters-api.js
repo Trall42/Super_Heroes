@@ -1,8 +1,10 @@
 export default ($axios, $config) => ({
   getCharacters(id) {
-    return $axios.get(`https://www.superheroapi.com/api.php/1111/${id}`)
+    const apiUrl = $config.apiUrl
+    const accessToken = $config.accessToken
+    return $axios.get(`${apiUrl}/api.php/${accessToken}/${id}`)
   },
   searchCharacters(payload) {
-    return $axios.get(`https://www.superheroapi.com/api.php/1111/search/${payload}`)
+    return $axios.get(`${apiUrl}/api.php/${accessToken}/search/${payload}`)
   }
 })
